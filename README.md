@@ -23,8 +23,10 @@ GitHub
 
 
 How to Run:
-Go to the project folder, then run the run.py file using the following command:
-python run.py
+Go to the project folder, then run the run.py file using the following command in terminal:
+python run.
+and open this url in browser http://127.0.0.1:5000/
+
 
 
 Student Name:
