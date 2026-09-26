@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Home - Alzikrayat</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            color: #222;
+        }
+
+        nav {
+            background: #222;
+            padding: 18px 30px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: #7db7ff;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 60px;
+            margin-bottom: 15px;
+            font-size: 42px;
+            color: #222;
+        }
+
+        body > p {
+            max-width: 700px;
+            margin: 0 auto 35px;
+            text-align: center;
+            color: #666;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        section {
+            max-width: 900px;
+            margin: 25px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        section h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #333;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        section p {
+            line-height: 1.7;
+            color: #555;
+        }
+
+        section:first-of-type {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        section:first-of-type h2 {
+            width: 100%;
+        }
+
+        section:first-of-type p {
+            flex: 1;
+            min-width: 220px;
+            margin: 0;
+            padding: 22px;
+            background: #f7f9fb;
+            border-radius: 10px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        section:first-of-type p::first-line {
+            font-weight: bold;
+        }
+
+        section:last-of-type {
+            margin-bottom: 50px;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                padding: 15px 10px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px;
+            }
+
+            h1 {
+                font-size: 32px;
+                margin-top: 40px;
+            }
+
+            body > p {
+                padding: 0 20px;
+                font-size: 16px;
+            }
+
+            section {
+                margin: 20px;
+                padding: 22px;
+            }
+
+            section:first-of-type {
+                display: block;
+            }
+
+            section:first-of-type p {
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="/">Home</a>
+        |
+        <a href="/photos">Photos</a>
+        |
+        <a href="/upload">Upload Photo</a>
+        |
+
+        {% if session.get("userId") %}
+
+            <a href="/logout">Logout</a>
+
+        {% else %}
+
+            <a href="/login">Login</a>
+            |
+            <a href="/register">Register</a>
+
+        {% endif %}
+
+    </nav>
+
+    <h1>Welcome to Alzikrayat</h1>
+
+    <p>
+        Alzikrayat is a photo sharing web application.
+    </p>
+
+    <section>
+        <h2>Statistics</h2>
+
+        <p>
+            Total Users: {{ totalUsers }}
+        </p>
+
+        <p>
+            Total Photos: {{ totalPhotos }}
+        </p>
+    </section>
+
+    <section>
+        <h2>About Us</h2>
+
+        <p>
+            Alzikrayat is a photo sharing web application
+            that allows registered users to upload, view,
+            and share photos.
+        </p>
+
+        <p>
+            Users can also interact with photos through comments.
+        </p>
+    </section>
+
+</body>
+
+</html>
